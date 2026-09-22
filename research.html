@@ -12,6 +12,7 @@
     --accent: #2E4374;
     --accent-soft: #E4E9F4;
     --mark: #B3261E;
+    --working: #7A6A3F;
     --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
     --font-body: 'Work Sans', -apple-system, sans-serif;
     --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
@@ -29,6 +30,7 @@
       --accent: #8CA3E0;
       --accent-soft: #202A40;
       --mark: #E2685C;
+      --working: #C2AD6E;
     }
   }
   :root[data-theme="dark"]{
@@ -40,6 +42,7 @@
     --accent: #8CA3E0;
     --accent-soft: #202A40;
     --mark: #E2685C;
+    --working: #C2AD6E;
   }
 
   *,*::before,*::after{ box-sizing:border-box; }
@@ -123,6 +126,13 @@
   .section.published .paper{
     border-left:3px solid var(--accent);
     padding-left:16px;
+  }
+  .section.working .paper{
+    border-left:3px solid var(--working);
+    padding-left:16px;
+  }
+  .section.working .paper-abstract{
+    border-left-color:var(--working);
   }
   .section-label{
     font-family:var(--font-mono);
@@ -297,7 +307,7 @@
   </article>
 </section>
 
-<section class="section">
+<section class="section working">
   <p class="section-label">Working Papers</p>
 
   <article class="paper">
