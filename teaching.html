@@ -153,7 +153,24 @@
     font-size:15px;
     color:var(--ink);
     max-width:60ch;
-    margin:0;
+    margin:0 0 12px;
+  }
+  .course-link{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    padding:7px 13px;
+    border-radius:8px;
+    border:1px solid var(--line);
+    color:var(--ink);
+    text-decoration:none;
+    display:inline-block;
+    transition:background .15s, color .15s, border-color .15s;
+    white-space:nowrap;
+  }
+  .course-link:hover{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:var(--paper);
   }
 
   /* TA GROUPS */
@@ -227,6 +244,7 @@
     <p class="course-meta">POL342H1 &middot; Spring 2026</p>
     <h3 class="course-title">Topics in Methods I (Political Psychology)</h3>
     <p class="course-desc">Introduces political psychology research methods, examining how psychological processes shape political attitudes. Covers personality, emotion, social identity, polarization, racialized attitudes, and persuasion. Students learn to evaluate research, operationalize constructs, design experiments, and apply concepts to contemporary politics.</p>
+    <a class="course-link" href="https://drive.google.com/file/d/1oRLs3Yf8F13y5oK2JidDP8Y13iNtdKZ_/view?usp=sharing" target="_blank" rel="noopener">Syllabus &#8599;</a>
   </article>
 
   <article class="course">
