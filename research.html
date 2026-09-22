@@ -12,6 +12,7 @@
     --accent: #2E4374;
     --accent-soft: #E4E9F4;
     --mark: #B3261E;
+    --venue: #3D6E68;
     --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
     --font-body: 'Work Sans', -apple-system, sans-serif;
     --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
@@ -29,6 +30,7 @@
       --accent: #8CA3E0;
       --accent-soft: #202A40;
       --mark: #E2685C;
+      --venue: #7FBDB3;
     }
   }
   :root[data-theme="dark"]{
@@ -40,6 +42,7 @@
     --accent: #8CA3E0;
     --accent-soft: #202A40;
     --mark: #E2685C;
+    --venue: #7FBDB3;
   }
 
   *,*::before,*::after{ box-sizing:border-box; }
@@ -147,8 +150,7 @@
     margin:0 0 8px;
   }
   .paper-meta .venue{
-    color:var(--ink);
-    font-weight:600;
+    color:var(--venue);
   }
   .paper-meta .status{
     color:var(--accent);
