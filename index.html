@@ -104,8 +104,9 @@
     justify-content:space-between;
     align-items:flex-end;
     gap:24px;
-    margin-bottom:10px;
+    margin-bottom:34px;
   }
+  .hero-text{ display:flex; flex-direction:column; }
   .hero-top h1{ margin-bottom:-6px; }
   .hero-photo{
     flex:0 0 auto;
@@ -144,7 +145,7 @@
     letter-spacing:0.04em;
     text-transform:uppercase;
     color:var(--accent);
-    margin:0 0 34px;
+    margin:0;
   }
 
   .tagline{
@@ -273,11 +274,13 @@
 
 <header class="hero">
   <div class="hero-top">
-    <h1>Natasha Goel</h1>
+    <div class="hero-text">
+      <h1>Natasha Goel</h1>
+      <p class="title-line">PhD, Political Science</p>
+      <p class="fields-line">Political Psychology &middot; Political Communication</p>
+    </div>
     <div class="hero-photo"><img src="headshot.jpg" alt="Natasha Goel" width="600" height="836"></div>
   </div>
-  <p class="title-line">PhD, Political Science</p>
-  <p class="fields-line">Political Psychology &middot; Political Communication</p>
 
   <div class="bio">
     <p><span class="hook">Why do political beliefs persist even when they don't match the facts?</span> I study how people engage with political information across the digital ecosystem, including social media, podcasts, and AI tools like Google AI Overview and chatbots, and how it shapes our political beliefs and decisions. I consider this at two levels: individually, how biases, affect, and identities determine whose information we believe, and at the platform level, how these tools drive the incentives behind what we see and how we engage with it.</p>
