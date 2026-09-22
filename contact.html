@@ -1,0 +1,193 @@
+<!-- Get In Touch -->
+<title>Get In Touch</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..900&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --paper: #EEF0EA;
+    --paper-dim: #E4E7DF;
+    --ink: #16150F;
+    --ink-soft: #57544A;
+    --line: #D7DBD0;
+    --accent: #2E4374;
+    --accent-soft: #E4E9F4;
+    --mark: #B3261E;
+    --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    --font-body: 'Work Sans', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+    --container: 760px;
+    --gutter: clamp(20px, 6vw, 56px);
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper: #131711;
+      --paper-dim: #1B1F15;
+      --ink: #EFEDE3;
+      --ink-soft: #ABA79A;
+      --line: #2B3024;
+      --accent: #8CA3E0;
+      --accent-soft: #202A40;
+      --mark: #E2685C;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper: #131711;
+    --paper-dim: #1B1F15;
+    --ink: #EFEDE3;
+    --ink-soft: #ABA79A;
+    --line: #2B3024;
+    --accent: #8CA3E0;
+    --accent-soft: #202A40;
+    --mark: #E2685C;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:inherit; }
+  img{ max-width:100%; }
+
+  /* NAV */
+  nav{
+    border-bottom:1px solid var(--line);
+    padding:22px 0;
+  }
+  .nav-inner{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:0 var(--gutter);
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:6px 18px;
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+  .nav-inner a{
+    text-decoration:none;
+    color:var(--ink-soft);
+    padding:4px 2px;
+    border-bottom:1px solid transparent;
+    transition:color .15s, border-color .15s;
+  }
+  .nav-inner a:hover{ color:var(--ink); border-color:var(--ink-soft); }
+  .nav-inner a.current{ color:var(--accent); border-color:var(--accent); }
+  .nav-spacer{ flex:1 1 auto; }
+
+  /* PAGE HEADER */
+  .page-head{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:clamp(40px,7vw,64px) var(--gutter) 8px;
+  }
+  .page-head h1{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:clamp(36px,5.5vw,56px);
+    line-height:1;
+    letter-spacing:-0.01em;
+    margin:0 0 12px;
+  }
+  .page-head p{
+    font-size:16px;
+    color:var(--ink-soft);
+    max-width:56ch;
+    margin:0;
+  }
+
+  /* CONTACT LINKS */
+  .contact-section{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:24px var(--gutter) 8px;
+  }
+  .contact-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:40px;
+  }
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--font-mono);
+    font-size:13px;
+    letter-spacing:0.02em;
+    padding:12px 22px;
+    border-radius:100px;
+    border:1px solid var(--line);
+    color:var(--ink);
+    text-decoration:none;
+    background:transparent;
+    transition:background .15s, color .15s, border-color .15s;
+    white-space:nowrap;
+  }
+  .pill:hover{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:var(--paper);
+  }
+
+  /* ADDRESS */
+  .address-block{
+    padding:28px 0 60px;
+    border-top:1px solid var(--line);
+  }
+  .address-label{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 14px;
+  }
+  .address-text{
+    font-size:16px;
+    color:var(--ink);
+    line-height:1.7;
+    margin:0;
+  }
+
+  @media (max-width:520px){
+    .nav-inner{ font-size:11px; gap:6px 12px; }
+  }
+</style>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html">Home</a>
+    <a href="https://drive.google.com/file/d/13iG--FSOaCRf53YxqRxhHyfrn56K7QeS/view" target="_blank" rel="noopener">CV</a>
+    <a href="research.html">Research</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="media-commentary.html">Media &amp; Commentary</a>
+    <div class="nav-spacer"></div>
+    <a href="contact.html" class="current">Contact</a>
+  </div>
+</nav>
+
+<header class="page-head">
+  <h1>Contact</h1>
+</header>
+
+<section class="contact-section">
+  <div class="contact-links">
+    <a href="mailto:nsg82@cornell.edu" class="pill">Email</a>
+    <a href="https://www.linkedin.com/in/natasha-goel-phd-02891514b/" target="_blank" rel="noopener" class="pill">LinkedIn &#8599;</a>
+    <a href="https://scholar.google.ca/citations?user=kfHiIvMAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener" class="pill">Google Scholar &#8599;</a>
+  </div>
+
+  <div class="address-block">
+    <p class="address-label">Address</p>
+    <p class="address-text">Cornell University<br>Department of Psychology<br>Uris Hall, 243<br>Ithaca, NY 14853</p>
+  </div>
+</section>

@@ -1,0 +1,278 @@
+<!-- Byline -->
+<title>Byline</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..900&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --paper: #EEF0EA;
+    --paper-dim: #E4E7DF;
+    --ink: #16150F;
+    --ink-soft: #57544A;
+    --line: #D7DBD0;
+    --accent: #2E4374;
+    --accent-soft: #E4E9F4;
+    --mark: #B3261E;
+    --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    --font-body: 'Work Sans', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+    --container: 760px;
+    --gutter: clamp(20px, 6vw, 56px);
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper: #131711;
+      --paper-dim: #1B1F15;
+      --ink: #EFEDE3;
+      --ink-soft: #ABA79A;
+      --line: #2B3024;
+      --accent: #8CA3E0;
+      --accent-soft: #202A40;
+      --mark: #E2685C;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper: #131711;
+    --paper-dim: #1B1F15;
+    --ink: #EFEDE3;
+    --ink-soft: #ABA79A;
+    --line: #2B3024;
+    --accent: #8CA3E0;
+    --accent-soft: #202A40;
+    --mark: #E2685C;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:inherit; }
+  img{ max-width:100%; }
+
+  .note{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:14px var(--gutter) 0;
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.03em;
+    color:var(--ink-soft);
+  }
+
+  /* NAV */
+  nav{
+    border-bottom:1px solid var(--line);
+    padding:22px 0;
+  }
+  .nav-inner{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:0 var(--gutter);
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:6px 18px;
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+  .nav-inner a{
+    text-decoration:none;
+    color:var(--ink-soft);
+    padding:4px 2px;
+    border-bottom:1px solid transparent;
+    transition:color .15s, border-color .15s;
+  }
+  .nav-inner a:hover{ color:var(--ink); border-color:var(--ink-soft); }
+  .nav-inner a.current{ color:var(--accent); border-color:var(--accent); }
+  .nav-spacer{ flex:1 1 auto; }
+
+  /* PAGE HEADER */
+  .page-head{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:clamp(40px,7vw,64px) var(--gutter) 8px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .page-head h1{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:clamp(36px,5.5vw,56px);
+    line-height:1;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .page-photo{
+    flex:0 0 auto;
+    width:clamp(100px,16vw,150px);
+    aspect-ratio:3/4;
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .page-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:50% 25%;
+    display:block;
+  }
+
+  /* SECTION */
+  .section{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:8px var(--gutter) 8px;
+  }
+
+  /* PIECE ENTRY */
+  .piece{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    padding:22px 0;
+    border-top:1px solid var(--line);
+  }
+  .piece:first-child{ border-top:none; padding-top:0; }
+  .piece-logo{
+    flex:0 0 auto;
+    width:38px;
+    height:38px;
+    border-radius:8px;
+    border:1px solid var(--line);
+    background:var(--paper-dim);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .piece-logo img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    padding:6px;
+    box-sizing:border-box;
+  }
+  .piece-logo .initials{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--ink-soft);
+  }
+  .piece-body{ flex:1 1 auto; min-width:0; }
+
+  .piece-meta{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.02em;
+    color:var(--ink-soft);
+    margin:0 0 8px;
+  }
+  .piece-title{
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:clamp(17px,2vw,19px);
+    line-height:1.4;
+    letter-spacing:-0.005em;
+    margin:0 0 6px;
+    max-width:56ch;
+  }
+  .piece-authors{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    margin:0 0 12px;
+  }
+  .piece-authors .me{ color:var(--ink); font-weight:600; }
+  .piece-link{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    padding:7px 13px;
+    border-radius:8px;
+    border:1px solid var(--line);
+    color:var(--ink);
+    text-decoration:none;
+    display:inline-block;
+    transition:background .15s, color .15s, border-color .15s;
+    white-space:nowrap;
+  }
+  .piece-link:hover{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:var(--paper);
+  }
+
+  .page-foot{ height:44px; }
+
+  @media (max-width:520px){
+    .nav-inner{ font-size:11px; gap:6px 12px; }
+  }
+</style>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html">Home</a>
+    <a href="https://drive.google.com/file/d/13iG--FSOaCRf53YxqRxhHyfrn56K7QeS/view" target="_blank" rel="noopener">CV</a>
+    <a href="research.html">Research</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="media-commentary.html" class="current">Media &amp; Commentary</a>
+    <div class="nav-spacer"></div>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<header class="page-head">
+  <h1>Media &amp; Commentary</h1>
+  <div class="page-photo"><img src="media-photo.jpg" alt="Natasha Goel speaking on stage" width="1206" height="1608"></div>
+</header>
+
+<section class="section">
+  <article class="piece">
+    <div class="piece-logo"><img src="logo-techpolicy.png" alt="Tech Policy Press"></div>
+    <div class="piece-body">
+      <p class="piece-meta">2025 &middot; Tech Policy Press</p>
+      <h3 class="piece-title">Can ChatGPT Change Your Mind? Perhaps, Studies Show</h3>
+      <p class="piece-authors"><span class="me">Natasha Goel</span></p>
+      <a class="piece-link" href="https://www.techpolicy.press/can-chatgpt-change-your-mind-perhaps-studies-show/" target="_blank" rel="noopener">Read piece &#8599;</a>
+    </div>
+  </article>
+
+  <article class="piece">
+    <div class="piece-logo"><img src="logo-irpp.png" alt="IRPP"></div>
+    <div class="piece-body">
+      <p class="piece-meta">2025 &middot; Institute for Research on Public Policy (IRPP)</p>
+      <h3 class="piece-title">Who Changed Their Minds? Two Shifts in Canadian Public Opinion on Immigration: 1995&ndash;2005 and 2023&ndash;24</h3>
+      <p class="piece-authors">Randy Besco and <span class="me">Natasha Goel</span></p>
+      <a class="piece-link" href="https://centre.irpp.org/research-studies/canadian-opinion-immigration/" target="_blank" rel="noopener">Read piece &#8599;</a>
+    </div>
+  </article>
+
+  <article class="piece">
+    <div class="piece-logo"><img src="logo-icc.png" alt="Institute for Canadian Citizenship"></div>
+    <div class="piece-body">
+      <p class="piece-meta">2025 &middot; Institute for Canadian Citizenship (ICC)</p>
+      <h3 class="piece-title">Here to Stay: Understanding Immigrant Retention in Canada</h3>
+      <p class="piece-authors"><span class="me">Natasha Goel</span></p>
+      <a class="piece-link" href="https://forcitizenship.ca/wp-content/uploads/2025/09/Here-to-Stay.pdf" target="_blank" rel="noopener">Read piece &#8599;</a>
+    </div>
+  </article>
+
+  <article class="piece">
+    <div class="piece-logo"><span class="initials">EBI</span></div>
+    <div class="piece-body">
+      <p class="piece-meta">2021 &middot; Economic Blueprint Institute</p>
+      <h3 class="piece-title">From Crisis to Opportunity: Challenges Today and Futureproofing for Tomorrow</h3>
+      <p class="piece-authors"><span class="me">Natasha Goel</span></p>
+    </div>
+  </article>
+</section>
+
+<div class="page-foot"></div>

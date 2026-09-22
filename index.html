@@ -1,0 +1,312 @@
+<!-- Correction Mark -->
+<title>Correction Mark</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..900&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --paper: #EEF0EA;
+    --paper-dim: #E4E7DF;
+    --ink: #16150F;
+    --ink-soft: #57544A;
+    --line: #D7DBD0;
+    --accent: #2E4374;
+    --accent-soft: #E4E9F4;
+    --mark: #B3261E;
+    --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    --font-body: 'Work Sans', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+    --container: 760px;
+    --gutter: clamp(20px, 6vw, 56px);
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper: #131711;
+      --paper-dim: #1B1F15;
+      --ink: #EFEDE3;
+      --ink-soft: #ABA79A;
+      --line: #2B3024;
+      --accent: #8CA3E0;
+      --accent-soft: #202A40;
+      --mark: #E2685C;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper: #131711;
+    --paper-dim: #1B1F15;
+    --ink: #EFEDE3;
+    --ink-soft: #ABA79A;
+    --line: #2B3024;
+    --accent: #8CA3E0;
+    --accent-soft: #202A40;
+    --mark: #E2685C;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:inherit; }
+  img{ max-width:100%; }
+
+  .note{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:14px var(--gutter) 0;
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.03em;
+    color:var(--ink-soft);
+  }
+
+  /* NAV */
+  nav{
+    border-bottom:1px solid var(--line);
+    padding:22px 0;
+  }
+  .nav-inner{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:0 var(--gutter);
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:6px 18px;
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+  .nav-inner a{
+    text-decoration:none;
+    color:var(--ink-soft);
+    padding:4px 2px;
+    border-bottom:1px solid transparent;
+    transition:color .15s, border-color .15s;
+  }
+  .nav-inner a:hover{ color:var(--ink); border-color:var(--ink-soft); }
+  .nav-inner a.current{ color:var(--accent); border-color:var(--accent); }
+  .nav-spacer{ flex:1 1 auto; }
+
+  /* HERO */
+  .hero{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:clamp(48px,9vw,88px) var(--gutter) 40px;
+  }
+  .hero-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:10px;
+  }
+  .hero-photo{
+    flex:0 0 auto;
+    width:clamp(84px,13vw,132px);
+    aspect-ratio:4/5;
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .hero-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center top;
+    display:block;
+  }
+  h1{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:clamp(44px,7.5vw,84px);
+    line-height:0.98;
+    letter-spacing:-0.01em;
+    margin:0;
+    text-wrap:balance;
+  }
+  .title-line{
+    font-family:var(--font-body);
+    font-size:clamp(16px,2vw,19px);
+    color:var(--ink-soft);
+    margin:2px 0 8px;
+    max-width:46ch;
+  }
+  .fields-line{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 34px;
+  }
+
+  .tagline{
+    font-family:var(--font-display);
+    font-weight:500;
+    font-style:italic;
+    font-size:clamp(21px,2.6vw,28px);
+    line-height:1.4;
+    margin:0 0 34px;
+    max-width:22ch;
+  }
+  .tagline s{
+    color:var(--mark);
+    text-decoration-color:var(--mark);
+    text-decoration-thickness:1.5px;
+    font-style:normal;
+    opacity:0.75;
+  }
+  .tagline ins{
+    color:var(--accent);
+    text-decoration:none;
+  }
+
+  .bio{
+    font-size:16px;
+    color:var(--ink);
+    max-width:58ch;
+    margin:0 0 36px;
+  }
+  .bio p{ margin:0; }
+  .bio p + p{ margin-top:14px; }
+  .bio .hook{ font-style:italic; }
+  .bio-link{
+    color:var(--accent);
+    text-decoration:underline;
+    text-underline-offset:2px;
+    text-decoration-color:var(--line);
+    transition:text-decoration-color .15s;
+  }
+  .bio-link:hover{ text-decoration-color:var(--accent); }
+
+  .cta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:8px;
+  }
+  .pill{
+    font-family:var(--font-mono);
+    font-size:13px;
+    letter-spacing:0.02em;
+    padding:11px 20px;
+    border-radius:100px;
+    border:1px solid var(--line);
+    color:var(--ink);
+    text-decoration:none;
+    background:transparent;
+    transition:background .15s, color .15s, border-color .15s;
+    white-space:nowrap;
+  }
+  .pill:hover{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:var(--paper);
+  }
+  .pill.filled{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:var(--paper);
+  }
+  .pill.filled:hover{ opacity:0.85; background:var(--accent); }
+
+  /* RESEARCH TAGS */
+  .tags-section{
+    background:var(--paper-dim);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:36px 0;
+  }
+  .tags-inner{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:0 var(--gutter);
+  }
+  .tags-label{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 16px;
+  }
+  .tags-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+  }
+  .tag{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    padding:8px 14px;
+    border-radius:8px;
+    border:1px solid var(--line);
+    color:var(--ink-soft);
+    background:var(--paper);
+  }
+
+  @media (max-width:520px){
+    .nav-inner{ font-size:11px; gap:6px 12px; }
+    .cta-row{ flex-direction:column; align-items:flex-start; }
+    .hero-top{ flex-wrap:wrap-reverse; align-items:flex-start; }
+  }
+</style>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="current">Home</a>
+    <a href="https://drive.google.com/file/d/13iG--FSOaCRf53YxqRxhHyfrn56K7QeS/view" target="_blank" rel="noopener">CV</a>
+    <a href="research.html">Research</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="media-commentary.html">Media &amp; Commentary</a>
+    <div class="nav-spacer"></div>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-top">
+    <h1>Natasha Goel</h1>
+    <div class="hero-photo"><img src="headshot.jpg" alt="Natasha Goel" width="600" height="836"></div>
+  </div>
+  <p class="title-line">PhD, Political Science</p>
+  <p class="fields-line">Political Psychology &middot; Political Communication</p>
+
+  <div class="bio">
+    <p><span class="hook">Why do political beliefs persist even when they don't match the facts?</span> I study how people engage with political information across the digital ecosystem, including social media, podcasts, and AI tools like Google AI Overview and chatbots, and how it shapes our political beliefs and decisions. I consider this at two levels: individually, how biases, affect, and identities determine whose information we believe, and at the platform level, how these tools drive the incentives behind what we see and how we engage with it.</p>
+    <p>I am currently a Postdoctoral Associate at Cornell University working with David Rand and Gordon Pennycook. I received my PhD in Political Science at the University of Toronto in Summer 2026. I was previously a Research Fellow at the Policy, Elections, and Representation Lab (<a href="https://pearluoft.com/" target="_blank" rel="noopener" class="bio-link">PEARL</a>) and the Media Ecosystem Observatory (<a href="https://mediatechdemocracy.com/en/meo/" target="_blank" rel="noopener" class="bio-link">MEO</a>).</p>
+    <p>My research appears in <em>Journal of Experimental Political Science</em> (JEPS), <em>Political Behavior</em>, and <em>Tech Policy Press</em>.</p>
+    <p>Beyond research, ask me about movies, the collection of personal essays I am working on, how my running is going, or the last glass of wine I enjoyed.</p>
+  </div>
+
+  <div class="cta-row">
+    <a href="https://drive.google.com/file/d/13iG--FSOaCRf53YxqRxhHyfrn56K7QeS/view" target="_blank" rel="noopener" class="pill filled">View CV &#8599;</a>
+    <a href="research.html" class="pill">Research</a>
+    <a href="contact.html" class="pill">Contact</a>
+  </div>
+</header>
+
+<section class="tags-section">
+  <div class="tags-inner">
+    <p class="tags-label">Research focus</p>
+    <div class="tags-grid">
+      <span class="tag">Public Opinion</span>
+      <span class="tag">Digital Media</span>
+      <span class="tag">AI &amp; Politics</span>
+      <span class="tag">Belief Formation</span>
+      <span class="tag">Polarization</span>
+      <span class="tag">Intergroup Relations</span>
+      <span class="tag">Mis/Disinformation</span>
+      <span class="tag">Identities</span>
+      <span class="tag">Survey &amp; Experiments</span>
+      <span class="tag">Causal Inference</span>
+    </div>
+  </div>
+</section>
+

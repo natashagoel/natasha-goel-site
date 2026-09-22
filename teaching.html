@@ -1,0 +1,267 @@
+<!-- Course List -->
+<title>Course List</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..900&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --paper: #EEF0EA;
+    --paper-dim: #E4E7DF;
+    --ink: #16150F;
+    --ink-soft: #57544A;
+    --line: #D7DBD0;
+    --accent: #2E4374;
+    --accent-soft: #E4E9F4;
+    --mark: #B3261E;
+    --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    --font-body: 'Work Sans', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+    --container: 760px;
+    --gutter: clamp(20px, 6vw, 56px);
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper: #131711;
+      --paper-dim: #1B1F15;
+      --ink: #EFEDE3;
+      --ink-soft: #ABA79A;
+      --line: #2B3024;
+      --accent: #8CA3E0;
+      --accent-soft: #202A40;
+      --mark: #E2685C;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper: #131711;
+    --paper-dim: #1B1F15;
+    --ink: #EFEDE3;
+    --ink-soft: #ABA79A;
+    --line: #2B3024;
+    --accent: #8CA3E0;
+    --accent-soft: #202A40;
+    --mark: #E2685C;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:inherit; }
+  img{ max-width:100%; }
+
+  .note{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:14px var(--gutter) 0;
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.03em;
+    color:var(--ink-soft);
+  }
+
+  /* NAV */
+  nav{
+    border-bottom:1px solid var(--line);
+    padding:22px 0;
+  }
+  .nav-inner{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:0 var(--gutter);
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:6px 18px;
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+  .nav-inner a{
+    text-decoration:none;
+    color:var(--ink-soft);
+    padding:4px 2px;
+    border-bottom:1px solid transparent;
+    transition:color .15s, border-color .15s;
+  }
+  .nav-inner a:hover{ color:var(--ink); border-color:var(--ink-soft); }
+  .nav-inner a.current{ color:var(--accent); border-color:var(--accent); }
+  .nav-spacer{ flex:1 1 auto; }
+
+  /* PAGE HEADER */
+  .page-head{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:clamp(40px,7vw,64px) var(--gutter) 8px;
+  }
+  .page-head h1{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:clamp(36px,5.5vw,56px);
+    line-height:1;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+
+  /* SECTION */
+  .section{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:8px var(--gutter) 8px;
+  }
+  .section-label{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--accent);
+    padding:28px 0 18px;
+    border-top:1px solid var(--line);
+    margin-top:28px;
+  }
+  .section:first-of-type .section-label{ border-top:none; margin-top:0; padding-top:0; }
+
+  /* COURSE ENTRY (instructor) */
+  .course{
+    padding:22px 0;
+    border-top:1px solid var(--line);
+  }
+  .course:first-child{ border-top:none; padding-top:0; }
+
+  .course-meta{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.02em;
+    color:var(--ink-soft);
+    margin:0 0 8px;
+  }
+  .course-title{
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:clamp(17px,2vw,19px);
+    line-height:1.4;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    max-width:56ch;
+  }
+  .course-desc{
+    font-size:15px;
+    color:var(--ink);
+    max-width:60ch;
+    margin:0;
+  }
+
+  /* TA GROUPS */
+  .ta-group{
+    padding:20px 0;
+    border-top:1px solid var(--line);
+  }
+  .ta-group:first-child{ border-top:none; padding-top:0; }
+  .ta-school{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-weight:500;
+    font-size:16px;
+    color:var(--ink);
+    margin:0 0 14px;
+  }
+  .ta-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .ta-list li{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .ta-course{
+    font-size:15px;
+    color:var(--ink);
+  }
+  .ta-terms{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+
+  .page-foot{ height:44px; }
+
+  @media (max-width:520px){
+    .nav-inner{ font-size:11px; gap:6px 12px; }
+    .ta-list li{ flex-direction:column; gap:2px; }
+  }
+</style>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html">Home</a>
+    <a href="https://drive.google.com/file/d/13iG--FSOaCRf53YxqRxhHyfrn56K7QeS/view" target="_blank" rel="noopener">CV</a>
+    <a href="research.html">Research</a>
+    <a href="teaching.html" class="current">Teaching</a>
+    <a href="media-commentary.html">Media &amp; Commentary</a>
+    <div class="nav-spacer"></div>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<header class="page-head">
+  <h1>Teaching</h1>
+</header>
+
+<section class="section">
+  <p class="section-label">Instructor of Record</p>
+
+  <article class="course">
+    <p class="course-meta">POL342H1 &middot; Spring 2026</p>
+    <h3 class="course-title">Topics in Methods I (Political Psychology)</h3>
+    <p class="course-desc">Introduces political psychology research methods, examining how psychological processes shape political attitudes. Covers personality, emotion, social identity, polarization, racialized attitudes, and persuasion. Students learn to evaluate research, operationalize constructs, design experiments, and apply concepts to contemporary politics.</p>
+  </article>
+
+  <article class="course">
+    <p class="course-meta">POL314H1 &middot; Summer 2025</p>
+    <h3 class="course-title">Public Opinion and Voting</h3>
+    <p class="course-desc">Explores mass political behavior, focusing on opinion formation and voting decisions. The first half covers what public opinion is, how it's measured, and its capacity for change; the second examines media, elite, and campaign influences, alongside foundational forces like social groups, ideology, and partisanship.</p>
+  </article>
+</section>
+
+<section class="section">
+  <p class="section-label">Teaching Assistant</p>
+
+  <div class="ta-group">
+    <p class="ta-school">Munk School of Global Affairs &amp; Public Policy, University of Toronto</p>
+    <ul class="ta-list">
+      <li><span class="ta-course">PPG2003: Capstone Course</span><span class="ta-terms">Winter 2024, Winter 2025</span></li>
+      <li><span class="ta-course">PPG2018: The Role of Government</span><span class="ta-terms">Winter 2023, Fall 2023, Fall 2024, Fall 2025</span></li>
+    </ul>
+  </div>
+
+  <div class="ta-group">
+    <p class="ta-school">Department of Political Science, University of Toronto</p>
+    <ul class="ta-list">
+      <li><span class="ta-course">POL222: Introduction to Quantitative Reasoning I</span><span class="ta-terms">Fall 2023, Fall 2024</span></li>
+      <li><span class="ta-course">POL218: State, Society and Power in Comparative Perspective</span><span class="ta-terms">Fall 2022</span></li>
+      <li><span class="ta-course">POLB50: Canadian Government and Politics</span><span class="ta-terms">Fall &amp; Winter, 2021&ndash;2022</span></li>
+    </ul>
+  </div>
+
+  <div class="ta-group">
+    <p class="ta-school">Department of Geography &amp; Planning, University of Toronto</p>
+    <ul class="ta-list">
+      <li><span class="ta-course">GGR221: New Economic Spaces</span><span class="ta-terms">Winter 2020</span></li>
+    </ul>
+  </div>
+</section>
+
+<div class="page-foot"></div>
