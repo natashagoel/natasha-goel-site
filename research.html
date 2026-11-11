@@ -1,16 +1,18 @@
 <!-- Paper Trail -->
-<title>Paper Trail</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research | Natasha Goel</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
   :root{
-    --paper: #EEF0EA;
-    --paper-dim: #E4E7DF;
+    --paper: #FAFAF8;
+    --paper-dim: #F0F0EC;
     --ink: #16150F;
     --ink-soft: #57544A;
-    --line: #D7DBD0;
-    --accent: #2E4374;
-    --accent-soft: #E4E9F4;
+    --line: #E2E2DC;
+    --accent: #16150F;
+    --accent-soft: #EDEDE8;
     --mark: #B3261E;
     --working: #7A6A3F;
     --font-display: 'Source Serif 4', Georgia, serif;
@@ -117,103 +119,115 @@
     margin:0;
   }
 
+  .head-photo{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; }
+  .side-photo{ margin:0; width:clamp(120px,22vw,200px); flex:0 0 auto; }
+  .side-photo img{ display:block; width:100%; height:auto; border-radius:10px; }
+  .head-band{
+    position:relative;
+    background:
+      linear-gradient(to bottom, rgba(250,250,248,0.15) 0%, rgba(250,250,248,0.55) 55%, var(--paper) 100%),
+      url("research-lisbon-full.jpg") center 40% / cover no-repeat;
+    padding:clamp(120px,22vw,230px) 0 18px;
+    margin-bottom:8px;
+  }
+  .head-band .page-head{ padding-top:0; }
+  .head-band h1{ color:var(--ink); }
   /* SECTION */
   .section{
     max-width:var(--container);
     margin:0 auto;
-    padding:8px var(--gutter) 8px;
-  }
-  .section.published .paper{
-    border-left:3px solid var(--accent);
-    padding-left:16px;
-  }
-  .section.working .paper{
-    border-left:3px solid var(--working);
-    padding-left:16px;
-  }
-  .section.working .paper-abstract{
-    border-left-color:var(--working);
+    padding:8px var(--gutter);
   }
   .section-label{
-    font-family:var(--font-mono);
-    font-size:11px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--accent);
-    padding:28px 0 18px;
-    border-top:1px solid var(--line);
-    margin-top:28px;
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:22px;
+    letter-spacing:-0.005em;
+    color:var(--ink);
+    padding:40px 0 4px;
+    margin:0;
   }
-  .section:first-of-type .section-label{ border-top:none; margin-top:0; padding-top:0; }
+  .section:first-of-type .section-label{ padding-top:16px; }
 
   /* PAPER ENTRY */
   .paper{
+    display:grid;
+    grid-template-columns:96px 1fr;
+    column-gap:24px;
     padding:22px 0;
     border-top:1px solid var(--line);
   }
-  .paper:first-child{ border-top:none; padding-top:0; }
-
-  .paper-meta{
+  .paper > *{ grid-column:2; }
+  .paper .when{
+    grid-column:1;
+    grid-row:1 / span 6;
     font-family:var(--font-mono);
     font-size:12px;
     letter-spacing:0.02em;
     color:var(--ink-soft);
-    margin:0 0 8px;
+    margin:4px 0 0;
   }
-  .paper-meta .status{
-    color:var(--accent);
-  }
+  .paper .when.status{ color:var(--accent); }
   .paper-title{
-    font-family:var(--font-body);
-    font-weight:700;
-    font-size:clamp(17px,2vw,19px);
-    line-height:1.4;
-    letter-spacing:-0.005em;
-    margin:0 0 6px;
-    max-width:56ch;
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:clamp(18px,2vw,20px);
+    line-height:1.35;
+    margin:0 0 4px;
+    max-width:58ch;
   }
-  .paper-authors{
-    font-size:14.5px;
-    color:var(--ink-soft);
-    margin:0 0 12px;
-  }
-  .paper-in{
+  .paper-venue, .paper-in{
     font-style:italic;
     font-size:14.5px;
     color:var(--ink-soft);
-    margin:0 0 8px;
+    margin:0 0 4px;
+  }
+  .paper-in em{ font-style:normal; }
+  .paper-authors{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    margin:0 0 10px;
   }
   .paper-authors .me{ color:var(--ink); font-weight:600; }
-  .paper-abstract{
+  .paper-abstract{ margin:0 0 10px; max-width:62ch; }
+  .paper-abstract summary{
+    cursor:pointer;
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    color:var(--accent);
+    list-style:none;
+    display:inline-block;
+  }
+  .paper-abstract summary::-webkit-details-marker{ display:none; }
+  .paper-abstract summary::before{ content:"+ "; }
+  .paper-abstract[open] summary::before{ content:"\2212 "; }
+  .paper-abstract p{
     font-size:14.5px;
-    color:var(--ink);
-    max-width:60ch;
-    margin:0 0 12px;
-    background:var(--paper-dim);
-    border-left:3px solid var(--accent);
-    border-radius:0 10px 10px 0;
-    padding:14px 18px;
+    line-height:1.65;
+    margin:8px 0 0;
   }
-  .paper-links{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-  }
+  .paper-links{ display:flex; flex-wrap:wrap; gap:8px; }
   .paper-link{
     font-family:var(--font-mono);
     font-size:12.5px;
     padding:7px 13px;
     border-radius:8px;
-    border:1px solid var(--line);
+    border:1px solid #E3A23F;
     color:var(--ink);
     text-decoration:none;
     transition:background .15s, color .15s, border-color .15s;
     white-space:nowrap;
   }
   .paper-link:hover{
-    background:var(--accent);
-    border-color:var(--accent);
-    color:var(--paper);
+    background:#E3A23F;
+    border-color:#E3A23F;
+    color:#16150F;
+  }
+
+  @media (max-width:560px){
+    .paper{ grid-template-columns:1fr; }
+    .paper .when{ grid-column:1; grid-row:auto; margin:0 0 6px; }
+    .paper > *{ grid-column:1; }
   }
 
   .section-end{ height:1px; }
@@ -238,7 +252,7 @@
 <nav>
   <div class="nav-inner">
     <a href="index.html">Home</a>
-    <a href="https://drive.google.com/file/d/13iG--FSOaCRf53YxqRxhHyfrn56K7QeS/view" target="_blank" rel="noopener">CV</a>
+    <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
     <a href="research.html" class="current">Research</a>
     <a href="teaching.html">Teaching</a>
     <a href="media-commentary.html">Media and Commentary</a>
@@ -247,16 +261,19 @@
   </div>
 </nav>
 
+<div class="head-band">
 <header class="page-head">
   <h1>Research</h1>
 </header>
+</div>
 
 <section class="section published">
   <p class="section-label">Publications</p>
 
     <article class="paper">
-    <p class="paper-meta"><span class="status">Accepted</span> &middot; PNAS Nexus</p>
+    <p class="when status">Accepted</p>
     <h3 class="paper-title">Artificial Influence: Comparing the Effects of AI and Human Source Cues in Reducing Certainty in False Beliefs</h3>
+    <p class="paper-venue">PNAS Nexus</p>
     <p class="paper-authors"><span class="me">Natasha Goel</span>, Thomas Bergeron, Blake Lee-Whiting, Thomas Galipeau, Danielle Bohonos, Mujahedul Islam, Sonja Savolainen, Clareta Treger, Eric Merkley</p>
     <div class="paper-links">
       <a class="paper-link" href="https://osf.io/preprints/osf/2vh4k_v1" target="_blank" rel="noopener">Preprint &#8599;</a>
@@ -264,26 +281,30 @@
   </article>
 
   <article class="paper">
-    <p class="paper-meta">2026 &middot; JEPS</p>
+    <p class="when">2026</p>
     <h3 class="paper-title">Perceiving Politics: Considering the Political Categorization of Faces</h3>
+    <p class="paper-venue">JEPS</p>
     <p class="paper-authors">Thomas Bergeron, Blake Lee-Whiting, <span class="me">Natasha Goel</span></p>
     <div class="paper-links">
       <a class="paper-link" href="https://www.cambridge.org/core/journals/journal-of-experimental-political-science/article/perceiving-politics-considering-the-political-categorization-of-faces/F1F2BB04269E525E5EEC46ACA677D455" target="_blank" rel="noopener">Read paper &#8599;</a>
       <a class="paper-link" href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/TSNVRW" target="_blank" rel="noopener">Access data &#8599;</a>
-  </article>
-
-  <article class="paper">
-    <p class="paper-meta">2026 &middot; Political Behavior</p>
-    <h3 class="paper-title">Political Party or Policy Position? The Role of Policy Partisanship and Party Cues in Voter Decision Making</h3>
-    <p class="paper-authors">Clareta Treger, Thomas Galipeau, Thomas Bergeron, Sarah Lachance, <span class="me">Natasha Goel</span>, Mujahedul Islam, Blake Lee-Whiting, Beatrice Magistro, Peter J. Loewen</p>
-    <div class="paper-links">
-      <a class="paper-link" href="https://www.cambridge.org/core/journals/journal-of-experimental-political-science/article/perceiving-politics-considering-the-political-categorization-of-faces/F1F2BB04269E525E5EEC46ACA677D455" target="_blank" rel="noopener">Read paper &#8599;</a>
     </div>
   </article>
 
   <article class="paper">
-    <p class="paper-meta">2024 &middot; Political Behavior 47(4): 1483&ndash;1500</p>
+    <p class="when">2026</p>
+    <h3 class="paper-title">Political Party or Policy Position? The Role of Policy Partisanship and Party Cues in Voter Decision Making</h3>
+    <p class="paper-venue">Political Behavior</p>
+    <p class="paper-authors">Clareta Treger, Thomas Galipeau, Thomas Bergeron, Sarah Lachance, <span class="me">Natasha Goel</span>, Mujahedul Islam, Blake Lee-Whiting, Beatrice Magistro, Peter J. Loewen</p>
+    <div class="paper-links">
+      <a class="paper-link" href="https://link.springer.com/article/10.1007/s11109-026-10135-w" target="_blank" rel="noopener">Read paper &#8599;</a>
+    </div>
+  </article>
+
+  <article class="paper">
+    <p class="when">2024</p>
     <h3 class="paper-title">The Nature of Online Talk: Incivility of Opposing Views and Affective Polarization</h3>
+    <p class="paper-venue">Political Behavior 47(4): 1483&ndash;1500</p>
     <p class="paper-authors"><span class="me">Natasha Goel</span> and Eric Merkley</p>
     <div class="paper-links">
       <a class="paper-link" href="https://link.springer.com/article/10.1007/s11109-024-09998-8" target="_blank" rel="noopener">Read paper &#8599;</a>
@@ -292,8 +313,9 @@
   </article>
 
   <article class="paper">
-    <p class="paper-meta">2023 &middot; The Canadian Geographer 67(3): 380&ndash;393</p>
+    <p class="when">2023</p>
     <h3 class="paper-title">Residential Segregation and Inequality: Considering Barriers to Choice in Toronto</h3>
+    <p class="paper-venue">The Canadian Geographer 67(3): 380&ndash;393</p>
     <p class="paper-authors"><span class="me">Natasha Goel</span></p>
     <div class="paper-links">
       <a class="paper-link" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/cag.12827" target="_blank" rel="noopener">Read paper &#8599;</a>
@@ -305,15 +327,17 @@
   <p class="section-label">Book Chapters</p>
 
   <article class="paper">
-    <p class="paper-meta"><span class="status">Under contract</span> &middot; McGill-Queen's University Press</p>
+    <p class="when status">Under contract</p>
     <h3 class="paper-title">Media Influence on Trust in Online Remote Voting</h3>
+    <p class="paper-venue">McGill-Queen's University Press</p>
     <p class="paper-in">In <em>Trust and Trustworthiness: Evaluations of Online Voting</em></p>
     <p class="paper-authors">Helen Hayes and <span class="me">Natasha Goel</span></p>
   </article>
 
   <article class="paper">
-    <p class="paper-meta"><span class="status">In works</span> &middot; Routledge</p>
+    <p class="when status">In works</p>
     <h3 class="paper-title">The Comparative Correlates and Effects of Anti-intellectualism in Canada and the United States</h3>
+    <p class="paper-venue">Routledge</p>
     <p class="paper-in">In <em>The Routledge Handbook of Anti-Intellectualism</em></p>
     <p class="paper-authors">Eric Merkley and <span class="me">Natasha Goel</span></p>
   </article>
@@ -323,31 +347,32 @@
   <p class="section-label">Working Papers</p>
 
   <article class="paper">
-    <p class="paper-meta"><span class="status">Revise &amp; Resubmit</span> &middot; Political Psychology</p>
+    <p class="when status">R&amp;R</p>
     <h3 class="paper-title">The Relationship Between Polarization Misperceptions and Partisan Hostility Is Reciprocal</h3>
+    <p class="paper-venue">Political Psychology</p>
     <p class="paper-authors">Eric Merkley and <span class="me">Natasha Goel</span></p>
-    <p class="paper-abstract">Uses longitudinal data and experiments in Canada to evaluate the causal relationship between misperceiving polarization and partisan hostility.</p>
+    <details class="paper-abstract"><summary>Abstract</summary><p>Uses longitudinal data and experiments in Canada to evaluate the causal relationship between misperceiving polarization and partisan hostility.</p></details>
   </article>
   
   <article class="paper">
-    <p class="paper-meta">Under review</p>
+    <p class="when status">Under review</p>
     <h3 class="paper-title">Motivating Demand for Corrective Information</h3>
     <p class="paper-authors"><span class="me">Natasha Goel</span></p>
-    <p class="paper-abstract">This paper asks not whether corrections work, but whether people are likely to encounter them. Even effective corrections matter little if they never reach people in the first place. In a pre-registered survey experiment fielded in the United States (N = 1,401), participants were shown a false claim before being asked to choose from a set of headlines, one of which corrected the claim. A prompt to consider accuracy did not raise selection of the corrective headline on average, calling into question the value of one-size-fits-all nudges. It did, however, work among those least inclined to question their own views, suggesting such primes may induce curiosity precisely where it is otherwise absent. The lack of genuine demand for corrective information remains a significant challenge.</p>
+    <details class="paper-abstract"><summary>Abstract</summary><p>This paper asks not whether corrections work, but whether people are likely to encounter them. Even effective corrections matter little if they never reach people in the first place. In a pre-registered survey experiment fielded in the United States (N = 1,401), participants were shown a false claim before being asked to choose from a set of headlines, one of which corrected the claim. A prompt to consider accuracy did not raise selection of the corrective headline on average, calling into question the value of one-size-fits-all nudges. It did, however, work among those least inclined to question their own views, suggesting such primes may induce curiosity precisely where it is otherwise absent. The lack of genuine demand for corrective information remains a significant challenge.</p></details>
   </article>
 
   <article class="paper">
-    <p class="paper-meta"><span class="status">Under review</span></p>
+    <p class="when status">Under review</p>
     <h3 class="paper-title">Threat Primes Do Not Reliably Bias Immigration Information Processing</h3>
     <p class="paper-authors"><span class="me">Natasha Goel</span></p>
-    <p class="paper-abstract">This paper asks whether fear and threat appeals, a staple of campaign messaging, actually bias how people process political information. I test this in the context of immigration, using two pre-registered survey experiments in the United States (N = 1,290) and Canada (N = 1,136), where immigration is politicized very differently. Despite producing real emotional reactions, none of the threat primes, cultural, economic, or partisan, reliably produced the bias the theory predicts. Where effects did emerge, they sometimes moved in opposite directions across the two countries. The paper's larger point is that threat-based messaging does not travel on its own. Its effects depend heavily on the political environment amplifying it, not just the content of the message itself.</p>
+    <details class="paper-abstract"><summary>Abstract</summary><p>This paper asks whether fear and threat appeals, a staple of campaign messaging, actually bias how people process political information. I test this in the context of immigration, using two pre-registered survey experiments in the United States (N = 1,290) and Canada (N = 1,136), where immigration is politicized very differently. Despite producing real emotional reactions, none of the threat primes, cultural, economic, or partisan, reliably produced the bias the theory predicts. Where effects did emerge, they sometimes moved in opposite directions across the two countries. The paper's larger point is that threat-based messaging does not travel on its own. Its effects depend heavily on the political environment amplifying it, not just the content of the message itself.</p></details>
   </article>
 
   <article class="paper">
-    <p class="paper-meta">Working paper</p>
+    <p class="when status">Working paper</p>
     <h3 class="paper-title">Data Types and Government Access in Social Media Privacy Policies</h3>
     <p class="paper-authors">Gabrielle Lim and <span class="me">Natasha Goel</span></p>
-    <p class="paper-abstract">We examine an understudied feature of political communication on social media: data privacy. As more of our online interactions can be collected, tracked, identified, and monetized, most Americans say they are concerned about how their personal data is used by corporations and governments. We use a pre-registered conjoint experiment fielded in the United States to test which features of a social media platform's privacy policy&mdash;such as which political actors and countries can access user data&mdash;shape whether users say they would continue using the platform. We also examine what trade-offs they are willing to make, for instance, giving up their personal data in exchange for appealing new features.</p>
+    <details class="paper-abstract"><summary>Abstract</summary><p>We examine an understudied feature of political communication on social media: data privacy. As more of our online interactions can be collected, tracked, identified, and monetized, most Americans say they are concerned about how their personal data is used by corporations and governments. We use a pre-registered conjoint experiment fielded in the United States to test which features of a social media platform's privacy policy&mdash;such as which political actors and countries can access user data&mdash;shape whether users say they would continue using the platform. We also examine what trade-offs they are willing to make, for instance, giving up their personal data in exchange for appealing new features.</p></details>
   </article>
 </section>
 

@@ -1,16 +1,18 @@
 <!-- Get In Touch -->
-<title>Get In Touch</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | Natasha Goel</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
   :root{
-    --paper: #EEF0EA;
-    --paper-dim: #E4E7DF;
+    --paper: #FAFAF8;
+    --paper-dim: #F0F0EC;
     --ink: #16150F;
     --ink-soft: #57544A;
-    --line: #D7DBD0;
-    --accent: #2E4374;
-    --accent-soft: #E4E9F4;
+    --line: #E2E2DC;
+    --accent: #16150F;
+    --accent-soft: #EDEDE8;
     --mark: #B3261E;
     --font-display: 'Source Serif 4', Georgia, serif;
     --font-body: 'Inter', -apple-system, sans-serif;
@@ -110,6 +112,23 @@
     margin:0 auto;
     padding:24px var(--gutter) 8px;
   }
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr minmax(200px,300px);
+    gap:40px;
+    align-items:start;
+  }
+  .contact-photo{ margin:0; }
+  .contact-photo img{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:10px;
+  }
+  @media (max-width:640px){
+    .contact-grid{ grid-template-columns:1fr; gap:28px; }
+    .contact-photo{ max-width:300px; }
+  }
   .contact-links{
     display:flex;
     flex-wrap:wrap;
@@ -125,7 +144,7 @@
     letter-spacing:0.02em;
     padding:12px 22px;
     border-radius:100px;
-    border:1px solid var(--line);
+    border:1px solid #C47A72;
     color:var(--ink);
     text-decoration:none;
     background:transparent;
@@ -133,9 +152,9 @@
     white-space:nowrap;
   }
   .pill:hover{
-    background:var(--accent);
-    border-color:var(--accent);
-    color:var(--paper);
+    background:#C47A72;
+    border-color:#C47A72;
+    color:#FAFAF8;
   }
 
   /* ADDRESS */
@@ -180,6 +199,8 @@
 </header>
 
 <section class="contact-section">
+  <div class="contact-grid">
+  <div class="contact-info">
   <div class="contact-links">
     <a href="mailto:nsg82@cornell.edu" class="pill">Email</a>
     <a href="https://www.linkedin.com/in/natasha-goel-phd-02891514b/" target="_blank" rel="noopener" class="pill">LinkedIn &#8599;</a>
@@ -189,5 +210,8 @@
   <div class="address-block">
     <p class="address-label">Address</p>
     <p class="address-text">Cornell University<br>Department of Psychology<br>Uris Hall, 243<br>Ithaca, NY 14853</p>
+  </div>
+  </div>
+  <figure class="contact-photo"><img src="contact-photo.jpg" alt="Dried flowers in a ceramic vase against a white plaster wall" width="768" height="972"></figure>
   </div>
 </section>

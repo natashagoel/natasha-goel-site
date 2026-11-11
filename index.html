@@ -1,16 +1,18 @@
 <!-- Correction Mark -->
-<title>Correction Mark</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Natasha Goel</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
   :root{
-    --paper: #EEF0EA;
-    --paper-dim: #E4E7DF;
+    --paper: #FAFAF8;
+    --paper-dim: #F0F0EC;
     --ink: #16150F;
     --ink-soft: #57544A;
-    --line: #D7DBD0;
-    --accent: #2E4374;
-    --accent-soft: #E4E9F4;
+    --line: #E2E2DC;
+    --accent: #16150F;
+    --accent-soft: #EDEDE8;
     --mark: #B3261E;
     --font-display: 'Source Serif 4', Georgia, serif;
     --font-body: 'Inter', -apple-system, sans-serif;
@@ -132,11 +134,20 @@
     margin:0;
     text-wrap:balance;
   }
-  .title-line{
-    font-family:var(--font-body);
-    font-size:clamp(16px,2vw,19px);
+  h1 .name{ white-space:nowrap; }
+  h1 .cred{
+    font-weight:400;
+    font-size:0.42em;
+    letter-spacing:0;
     color:var(--ink-soft);
-    margin:2px 0 8px;
+    white-space:nowrap;
+  }
+  .current-role{ font-weight:500; color:inherit; }
+  .title-line{
+    font-family:var(--font-display);
+    font-size:clamp(15px,1.6vw,17px);
+    color:var(--ink-soft);
+    margin:10px 0 8px;
     max-width:46ch;
   }
   .fields-line{
@@ -145,7 +156,7 @@
     letter-spacing:0.04em;
     text-transform:uppercase;
     color:var(--accent);
-    margin:0;
+    margin:16px 0 0;
   }
 
   .tagline{
@@ -275,20 +286,18 @@
 <header class="hero">
   <div class="hero-top">
     <div class="hero-text">
-      <h1>Natasha Goel</h1>
-      <p class="title-line">PhD, Political Science</p>
-      <p class="fields-line">Political Psychology &middot; Political Communication</p>
+      <h1><span class="name">Natasha Goel</span><span class="cred">, PhD</span></h1>
+      <p class="fields-line">Political Psychology &middot; Political Communication &middot; AI</p>
     </div>
     <div class="hero-photo"><img src="headshot.jpg" alt="Natasha Goel" width="600" height="836"></div>
   </div>
 
   <div class="bio">
-    <p><span class="hook">How do political beliefs form and persist?</span> I study how people engage with information across the digital media ecosystem and how this shapes our political beliefs, opinions, and decisions. I consider this at two levels: individually, how biases, affect, and identities determine what information we consume and believe, and at the platform level, the incentives that drive what we see.</p>
-    <p>A second line of my work considers how AI is transforming the information ecosystem and politics more broadly, and how public perceptions of the technology shape approaches to its safety and governance. Through this work, I aim to understand the political and social consequences of rapid technological change and to inform more responsible approaches to AI.</p>
-    <p>Methodologically, my research draws on large-scale survey experiments as well as computational social science tools. I have also received specialized training at Columbia University in using LLMs for social science research.</p>
-    <p>I am currently a Postdoctoral Associate at Cornell University working with David Rand and Gordon Pennycook. I received my PhD in Political Science at the University of Toronto and was previously a Research Fellow at the Policy, Elections, and Representation Lab (<a href="https://pearluoft.com/" target="_blank" rel="noopener" class="bio-link">PEARL</a>) and the Media Ecosystem Observatory (<a href="https://mediatechdemocracy.com/en/meo/" target="_blank" rel="noopener" class="bio-link">MEO</a>).</p>
-    <p>My work appears in <em>Journal of Experimental Political Science</em> (JEPS), <em>Political Behavior</em>, and <em>Tech Policy Press</em>.</p>
-    <p>Beyond research, ask me about <a href="https://www.au-csint.com/film-club" target="_blank" rel="noopener" class="bio-link">movies</a>, food & wine, the collection of essays I am working on, or how my running is going..</p>
+    <p><span class="hook">How do political beliefs form and persist?</span> I study how people engage with information across the digital media ecosystem and how this shapes their opinions and decisions. I consider this at two levels: individually, how biases, affect, and identities determine what information we consume and believe, and at the platform level, the incentives that drive what we see.</p>
+    <p>A second line of my work examines how AI is transforming this ecosystem and politics more broadly, and how public perceptions of the technology shape its safety and governance. Through this work, I aim to understand the political and social consequences of rapid technological change and to inform more responsible approaches to AI. Across both lines of work, I use large-scale survey experiments and computational social science tools.</p>
+    <p>I am currently a <strong class="current-role">Postdoctoral Associate at Cornell University</strong> working with David Rand and Gordon Pennycook. I received my PhD in Political Science from the University of Toronto and was previously a Research Fellow at the Policy, Elections, and Representation Lab (<a href="https://pearluoft.com/" target="_blank" rel="noopener" class="bio-link">PEARL</a>) and the Media Ecosystem Observatory (<a href="https://mediatechdemocracy.com/en/meo/" target="_blank" rel="noopener" class="bio-link">MEO</a>).</p>
+    <p>My work appears in <em>Journal of Experimental Political Science</em> (JEPS), <em>PNAS Nexus</em>, <em>Political Behavior</em>, and <em>Tech Policy Press</em>.</p>
+    <p>Beyond research, ask me about <a href="https://www.au-csint.com/film-club" target="_blank" rel="noopener" class="bio-link">movies</a>, food & wine, the collection of essays I am working on, or how my running is going.</p>
   </div>
 
   <div class="cta-row">
@@ -305,9 +314,7 @@
       <span class="tag">Public Opinion</span>
       <span class="tag">Digital Media</span>
       <span class="tag">AI &amp; Politics</span>
-      <span class="tag">Belief Formation</span>
       <span class="tag">Polarization</span>
-      <span class="tag">Intergroup Relations</span>
       <span class="tag">Mis/Disinformation</span>
       <span class="tag">Identities</span>
       <span class="tag">Survey &amp; Experiments</span>

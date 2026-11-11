@@ -1,16 +1,18 @@
 <!-- Course List -->
-<title>Course List</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teaching | Natasha Goel</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
   :root{
-    --paper: #EEF0EA;
-    --paper-dim: #E4E7DF;
+    --paper: #FAFAF8;
+    --paper-dim: #F0F0EC;
     --ink: #16150F;
     --ink-soft: #57544A;
-    --line: #D7DBD0;
-    --accent: #2E4374;
-    --accent-soft: #E4E9F4;
+    --line: #E2E2DC;
+    --accent: #16150F;
+    --accent-soft: #EDEDE8;
     --mark: #B3261E;
     --font-display: 'Source Serif 4', Georgia, serif;
     --font-body: 'Inter', -apple-system, sans-serif;
@@ -93,6 +95,17 @@
   .nav-inner a.current{ color:var(--accent); border-color:var(--accent); }
   .nav-spacer{ flex:1 1 auto; }
 
+  .banner{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:clamp(24px,4vw,40px) var(--gutter) 0;
+  }
+  .banner img{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:10px;
+  }
   /* PAGE HEADER */
   .page-head{
     max-width:var(--container);
@@ -160,7 +173,7 @@
     font-size:12.5px;
     padding:7px 13px;
     border-radius:8px;
-    border:1px solid var(--line);
+    border:1px solid #3F8197;
     color:var(--ink);
     text-decoration:none;
     display:inline-block;
@@ -168,9 +181,9 @@
     white-space:nowrap;
   }
   .course-link:hover{
-    background:var(--accent);
-    border-color:var(--accent);
-    color:var(--paper);
+    background:#3F8197;
+    border-color:#3F8197;
+    color:#FAFAF8;
   }
 
   /* TA GROUPS */
@@ -181,7 +194,6 @@
   .ta-group:first-child{ border-top:none; padding-top:0; }
   .ta-school{
     font-family:var(--font-display);
-    font-style:italic;
     font-weight:500;
     font-size:16px;
     color:var(--ink);
@@ -224,7 +236,7 @@
 <nav>
   <div class="nav-inner">
     <a href="index.html">Home</a>
-    <a href="https://drive.google.com/file/d/13iG--FSOaCRf53YxqRxhHyfrn56K7QeS/view" target="_blank" rel="noopener">CV</a>
+    <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
     <a href="research.html">Research</a>
     <a href="teaching.html" class="current">Teaching</a>
     <a href="media-commentary.html">Media and Commentary</a>
@@ -232,6 +244,8 @@
     <a href="contact.html">Contact</a>
   </div>
 </nav>
+
+<figure class="banner"><img src="teaching-banner.jpg" alt="Villas on a rocky cliff above the sea in Marseille" width="1089" height="363"></figure>
 
 <header class="page-head">
   <h1>Teaching</h1>
